@@ -8,7 +8,8 @@ import org.neo4j.ogm.annotation.Property;
 @NodeEntity
     public class Challenge {
 
-        @Property
+
+    @Property
         @Id
         private String id;
         @Property
@@ -59,5 +60,16 @@ import org.neo4j.ogm.annotation.Property;
 
     public void setChallengeStamp(String challengeStamp) {
         this.challengeStamp = challengeStamp;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Challenge{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", level=" + level +
+                ", challengeStamp='" + challengeStamp + '\'' +
+                '}';
     }
 }

@@ -11,7 +11,10 @@ import org.neo4j.ogm.annotation.Relationship;
 
         @Id
         private String id;
-        @Property
+
+
+
+    @Property
         private String name;
         @Property
         private String preferredLang;
@@ -48,5 +51,14 @@ import org.neo4j.ogm.annotation.Relationship;
 
     public void setPreferredLang(String preferredLang) {
         this.preferredLang = preferredLang;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", preferredLang='" + preferredLang + '\'' +
+                '}';
     }
 }

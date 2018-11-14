@@ -22,10 +22,10 @@ public class RecommendationController {
         this.recommendationService = recommendationService;
     }
 
-    @GetMapping()
-    public ResponseEntity<?> getRecommendedChallenge() {
+    @GetMapping("/{name}")
+    public ResponseEntity<?> getRecommendedChallenge(@PathVariable String name) {
         ResponseEntity responseEntity;
-        List<Challenge> challengeList = recommendationService.getRecommendedChallenges();
+        List<Challenge> challengeList = recommendationService.getRecommendedChallenges(name);
         responseEntity = new ResponseEntity<List<Challenge>>(challengeList, HttpStatus.OK);
         return responseEntity;
     }
