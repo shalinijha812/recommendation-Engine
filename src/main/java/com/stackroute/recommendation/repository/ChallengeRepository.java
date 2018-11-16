@@ -9,6 +9,9 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface ChallengeRepository extends Neo4jRepository<Challenge,String> {
+    @Query(("Match(challenge:Challenge) where challenge.level=1 return challenge"))
+    List<Challenge>getBasicUnattemptedChallenges1();
+
     @Query ("Match (challenge:Challenge)-[r:isAttemptedBy]->(u:User) where u.name={name} and r.status='solved'" +
             "return challenge")
     ///and status is solved
